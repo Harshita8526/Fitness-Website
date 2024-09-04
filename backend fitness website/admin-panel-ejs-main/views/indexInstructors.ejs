@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node.js Admin Panel</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #ffc300;
+        color: white;
+      }
+
+      a {
+        text-decoration: none;
+        margin-left: 10px;
+        padding: 5px;
+        color: #333;
+        background-color: #ddd;
+        border-radius: 5px;
+      }
+
+      a:hover {
+        background-color: #ccc;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input {
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 8px;
+        background-color: #ffc300;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #ffDD00;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Instructors List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Instructor ID</th>
+          <th>Instructor Name</th>
+          <th>Specialization</th>
+          <th>Experience Years</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(instructor => { %>
+        <tr>
+          <td><%= instructor.Instructor_Id %></td>
+          <td><%= instructor.Instructor_Name %></td>
+          <td><%= instructor.Specialization %></td>
+          <td><%= instructor.Experience_Years %></td>
+          <td>
+            <a href="/instructors/edit/<%= instructor.Instructor_Id %>">Edit</a>
+            <a href="/instructors/delete/<%= instructor.Instructor_Id %>">Delete</a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <h3>Add Instructor</h3>
+    <form action="/instructors/add" method="post">
+      <label for="instructor_name">Instructor Name:</label>
+      <input type="text" name="instructor_name" required />
+      <label for="specialization">Specialization:</label>
+      <input type="text" name="specialization" />
+      <label for="experience_years">Experience Years:</label>
+      <input type="number" name="experience_years" />
+      <br>
+      <button type="submit">Add Instructor</button>
+    </form>
+  </body>
+</html>

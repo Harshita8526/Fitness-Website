@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit User</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    form {
+      margin-top: 20px;
+      max-width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #ffc300;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffDD00;
+    }
+  </style>
+</head>
+<body>
+  <h2>Edit User</h2>
+  <form action="/users/update/<%= user.User_Id %>" method="post">
+    <label for="username">Username:</label>
+    <input type="text" name="username" value="<%= user.Username %>" required />
+
+    <label for="date_of_birth">Date of Birth:</label>
+    <input type="date" name="date_of_birth" value="<%= user.Date_Of_Birth %>" required />
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" value="<%= user.Email %>" required />
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" value="<%= user.Password %>" required />
+
+    <label for="phone_no">Phone No:</label>
+    <input type="text" name="phone_no" value="<%= user.Phone_No %>" />
+
+    <label for="gender">Gender:</label>
+    <input type="text" name="gender" value="<%= user.Gender %>" />
+
+    <label for="address">Address:</label>
+    <input type="text" name="address" value="<%= user.Address %>" />
+
+    <button type="submit">Update User</button>
+  </form>
+</body>
+</html>

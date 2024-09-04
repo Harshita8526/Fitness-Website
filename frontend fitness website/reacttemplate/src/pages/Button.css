@@ -1,0 +1,65 @@
+#button{
+    color: white;
+    background-color: rgb(72, 71, 71);
+    padding: 10px 20px;
+    border: none;
+    border-Radius: 5px;
+    cursor: pointer;
+    margin-left: 130px;
+}
+
+
+.product-details {
+    margin-top: -50px;
+     
+    background-color: #a9a6a6; 
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
+    
+  }
+  
+  .product-name {
+    font-size: 1.5rem; 
+    color: #333; 
+    margin-left: 116px;
+    
+  }
+  
+  .product-description {
+    margin-top: 12px; 
+    
+    font-size: 1rem; 
+    color: black; 
+    font-weight: 500;
+    padding-right: 20px;
+    
+  }
+
+  .harshi{
+     margin-right: 70px;
+     
+  }
+  
+  .product-category {
+    font-size: 1.1rem; 
+    color: #007bff; 
+  }
+  
+  .product-price {
+    font-size: 1.2rem; 
+    color: #28a745; 
+  }
+  
+  .product-price span {
+    font-weight: bold;
+  }
+
+  .cat{
+    margin-right: 130px;
+    margin-top: 10px;
+  }
+  
+  .pri{
+    margin-top: -2px;
+    margin-right: 140px;
+  }

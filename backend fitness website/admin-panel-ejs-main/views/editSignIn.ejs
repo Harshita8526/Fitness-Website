@@ -1,0 +1,67 @@
+<!-- Filename: editSignIn.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Sign In</title>
+  <style>
+     body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    form {
+      margin-top: 20px;
+      max-width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #ffc300;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffDD00;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Edit Sign In</h2>
+  <form action="/sign_in/update/<%= user.id %>" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="<%= user.name %>" required />
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" value="<%= user.email %>" required />
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" value="<%= user.password %>" required />
+
+    <button type="submit">Update Sign In</button>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Messages</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ffc300;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      margin-left: 10px;
+      padding: 5px;
+      color: #333;
+      background-color: #ddd;
+      border-radius: 5px;
+      display: inline-block; 
+    }
+
+    a:hover {
+      background-color: #ccc;
+    }
+
+    form {
+      margin-top: 20px;
+      max-width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input,
+    textarea,
+    button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #ffc300;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffDD00;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Contact Messages</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Message ID</th>
+        <!-- <th>User ID</th> -->
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <!-- <th>Submission Date</th> -->
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(message => { %>
+      <tr>
+        <td><%= message.Message_Id %></td>
+        <!-- <td><%= message.User_Id %></td> -->
+        <td><%= message.Name %></td>
+        <td><%= message.Email %></td>
+        <td><%= message.Message %></td>
+        <!-- <td><%= message.Submission_Date %></td> -->
+        <td>
+          <a href="/contactus/edit/<%= message.Message_Id %>">Edit</a>
+          <a href="/contactus/delete/<%= message.Message_Id %>">Delete</a>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <h3>Add Contact Message</h3>
+  <form action="/contactus/add" method="post">
+    <!-- <label for="user_id">User ID:</label>
+    <input type="text" name="user_id" /> -->
+    <label for="Name">Name:</label>
+    <input type="text" name="Name" required />
+    <label for="Email">Email:</label>
+    <input type="email" name="Email" required />
+    <label for="Message">Message:</label>
+    <input type="text" name="Message" required />
+    <!-- <label for="submission_date">Submission Date:</label>
+    <input type="date" name="submission_date" required /> -->
+    <button type="submit">Add Message</button>
+  </form>
+</body>
+
+</html>

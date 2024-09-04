@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Company</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input {
+            width: 20%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3367d6;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Edit Company</h2>
+    <form action="/company/update/<%= company.company_id %>" method="post">
+        <label for="company_name">Company Name:</label>
+        <input type="text" name="company_name" value="<%= company.company_name %>" required />
+
+        <br>
+        <button type="submit">Update Company</button>
+    </form>
+</body>
+
+</html>

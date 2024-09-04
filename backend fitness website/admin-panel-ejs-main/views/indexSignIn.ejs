@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ffc300;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      margin-left: 10px;
+      padding: 5px;
+      color: #333;
+      background-color: #ddd;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    a:hover {
+      background-color: #ccc;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 8px;
+      background-color: #ffc300;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffDD00;
+    }
+
+    .button-container {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Users List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(sign => { %>
+      <tr>
+        <td><%= sign.id %></td>
+        <td><%= sign.name %></td>
+        <td><%= sign.email %></td>
+        <td><%= sign.password %></td>
+        <td>
+          <a href="/sign_in/edit/<%= sign.id %>">Edit</a>
+          <a href="/sign_in/delete/<%= sign.id %>">Delete</a>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <h3>Add User</h3>
+  <form action="/sign_in/add" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required />
+    <label for="email">Email:</label>
+    <input type="email" name="email" required />
+    <label for="password">Password:</label>
+    <input type="password" name="password" required />
+
+    <div class="button-container">
+      <button type="submit">Add User</button>
+    </div>
+  </form>
+</body>
+
+</html>

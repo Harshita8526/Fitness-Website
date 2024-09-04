@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Node.js Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ffc300;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      margin-left: 10px;
+      padding: 5px;
+      color: #333;
+      background-color: #ddd;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    a:hover {
+      background-color: #ccc;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 8px;
+      background-color: #ffc300;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffDD00;
+    }
+
+    .button-container {
+      margin-top: 10px; 
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Users List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Username</th>
+        <th>Date of Birth</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Phone No</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(user => { %>
+      <tr>
+        <td><%= user.User_Id %></td>
+        <td><%= user.Username %></td>
+        <td><%= user.Date_Of_Birth %></td>
+        <td><%= user.Email %></td>
+        <td><%= user.Password %></td>
+        <td><%= user.Phone_No %></td>
+        <td><%= user.Gender %></td>
+        <td><%= user.Address %></td>
+        <td>
+          <a href="/users/edit/<%= user.User_Id %>">Edit</a>
+          <a href="/users/delete/<%= user.User_Id %>">Delete</a>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <h3>Add User</h3>
+  <form action="/users/add" method="post">
+    <label for="username">Username:</label>
+    <input type="text" name="username" required />
+    <label for="date_of_birth">Date of Birth:</label>
+    <input type="date" name="date_of_birth" required />
+    <label for="email">Email:</label>
+    <input type="email" name="email" required />
+    <label for="password">Password:</label>
+    <input type="password" name="password" required />
+    <label for="phone_no">Phone No:</label>
+    <input type="text" name="phone_no" />
+    <label for="gender">Gender:</label>
+    <input type="text" name="gender" />
+    <label for="address">Address:</label>
+    <input type="text" name="address" />
+    
+    <div class="button-container">
+      <button type="submit">Add User</button>
+    </div>
+  </form>
+</body>
+
+</html>

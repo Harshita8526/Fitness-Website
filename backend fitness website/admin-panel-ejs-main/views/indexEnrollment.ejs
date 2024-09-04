@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Node.js Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ffc300;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      margin-left: 10px;
+      padding: 5px;
+      color: #333;
+      background-color: #ddd;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background-color: #ccc;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 8px;
+      background-color: #ffc300;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffDD00;
+    }
+
+    .button-container {
+      margin-top: 10px; 
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Enrollment List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Enrollment ID</th>
+        <th>User ID</th>
+        <th>Fitness Class ID</th>
+        <th>Enrollment Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(enrollment => { %>
+      <tr>
+        <td><%= enrollment.Enrollment_Id %></td>
+        <td><%= enrollment.User_Id %></td>
+        <td><%= enrollment.Fitness_Class_Id %></td>
+        <td><%= enrollment.Enrollment_Date %></td>
+        <td>
+          <a href="/enrollment/edit/<%= enrollment.Enrollment_Id %>">Edit</a>
+          <a href="/enrollment/delete/<%= enrollment.Enrollment_Id %>">Delete</a>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <h3>Add Enrollment</h3>
+  <form action="/enrollment/add" method="post">
+    <label for="user_id">User ID:</label>
+    <input type="text" name="user_id" required />
+
+    <label for="fitness_class_id">Fitness Class ID:</label>
+    <input type="text" name="fitness_class_id" required />
+
+    <label for="enrollment_date">Enrollment Date:</label>
+    <input type="date" name="enrollment_date" required />
+
+    <div class="button-container">
+      <button type="submit">Add Enrollment</button>
+    </div>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input {
+            width: 120px; 
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: 25%; 
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #ffc300;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ffDD00;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Edit Product</h2>
+    <form action="/products/update/<%= product.Product_Id %>" method="post">
+        <label for="product_name">Product Name:</label>
+        <input type="text" name="product_name" value="<%= product.Product_Name %>" required />
+
+        <label for="description">Description:</label>
+        <textarea name="description" rows="4" cols="50" required><%= product.Description %></textarea>
+
+        <label for="category">Category:</label>
+        <input type="text" name="category" value="<%= product.Category %>" required />
+
+        <label for="price">Price:</label>
+        <input type="text" name="price" value="<%= product.Price %>" required />
+
+        <label for="image">Image:</label>
+        <input type="text" name="image" value="<%= product.image %>" required />
+
+
+        <br> 
+
+        <button type="submit">Update Product</button>
+    </form>
+</body>
+
+</html>

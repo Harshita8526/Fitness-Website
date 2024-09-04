@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ffc300;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            margin-left: 10px;
+            padding: 5px;
+            color: #333;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #ccc;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px;
+            background-color: #ffc300;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ffDD00;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>About Page</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>About ID</th>
+                <th>About Title</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(about => { %>
+                <tr>
+                    <td><%= about.about_id %></td>
+                    <td><%= about.about_title %></td>
+                    <td>
+                        <a href="/about/edit/<%= about.about_id %>">Edit</a>
+                        <a href="/about/delete/<%= about.about_id %>">Delete</a>
+                    </td>
+                </tr>
+            <% }); %>
+
+            
+
+        </tbody>
+    </table>
+
+    <h3>Add About</h3>
+    <form action="/about/add" method="post">
+        <label for="about_title">About Title:</label>
+        <input type="text" name="about_title" required />
+        <br>
+        <button type="submit">Add About</button>
+    </form>
+</body>
+
+</html>
